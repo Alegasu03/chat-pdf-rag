@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>RAG Chat</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="layout">
+
+    <aside class="sidebar">
+        <div class="brand">
+            <div class="logo">📄</div>
+            <div>
+                <h2>Documents</h2>
+                <p>Upload your PDFs</p>
+            </div>
+        </div>
+
+        <div id="authBox" class="authBox">
+            <h3>Login</h3>
+
+            <input id="email" type="email" placeholder="Email">
+            <input id="password" type="password" placeholder="Password">
+
+            <button class="primaryBtn" onclick="login()">Login</button>
+            <button onclick="register()">Register</button>
+
+            <p id="authMessage"></p>
+        </div>
+
+        <div id="userBox" class="userBox" style="display: none;">
+            <p id="userEmail"></p>
+            <button onclick="logout()">Logout</button>
+        </div>
+
+        <div id="documentsArea" style="display: none;">
+            <label class="uploadBox" for="fileInput">
+                <span>Click to choose a PDF</span>
+                <small>Then press upload</small>
+            </label>
+
+            <input type="file" id="fileInput" accept="application/pdf" />
+
+        
+            <p id="selectedFileName" class="selectedFileName">
+                No file selected
+            </p>
+
+            <button class="primaryBtn" onclick="uploadPDF()">Upload</button>
+
+            <div id="docsList" class="docsList"></div>
+        </div>
+    </aside>
+
+    <main class="chat">
+        <header class="chatHeader">
+            <div>
+                <h1>RAG Chat</h1>
+                <p>Ask questions about your documents</p>
+            </div>
+            <span id="status" class="status">● Not logged in</span>
+        </header>
+
+        <div id="chatBox" class="chatBox"></div>
+
+        <div class="inputBox">
+            <input id="question" placeholder="Ask something..." />
+            <button onclick="ask()">Send</button>
+        </div>
+    </main>
+
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>

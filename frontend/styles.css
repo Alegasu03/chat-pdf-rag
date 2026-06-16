@@ -1,0 +1,365 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    background: linear-gradient(135deg, #eef2ff, #f8fafc);
+    color: #111827;
+}
+
+.layout {
+    display: grid;
+    grid-template-columns: 320px 1fr;
+    height: 100vh;
+    padding: 24px;
+    gap: 24px;
+}
+
+.sidebar,
+.chat {
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(14px);
+    border: 1px solid rgba(226, 232, 240, 0.9);
+    border-radius: 24px;
+    box-shadow: 0 20px 50px rgba(15, 23, 42, 0.08);
+}
+
+.sidebar {
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    overflow: hidden;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex-shrink: 0;
+}
+
+.logo {
+    width: 48px;
+    height: 48px;
+    display: grid;
+    place-items: center;
+    border-radius: 16px;
+    background: #eef2ff;
+    font-size: 24px;
+    flex-shrink: 0;
+}
+
+.brand h2,
+.chatHeader h1 {
+    margin: 0;
+}
+
+.brand p,
+.chatHeader p {
+    margin: 4px 0 0;
+    color: #64748b;
+    font-size: 14px;
+}
+
+/* AUTH */
+
+.authBox {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.authBox h3 {
+    margin: 0 0 4px;
+}
+
+.authBox input {
+    width: 100%;
+    border: 1px solid #cbd5e1;
+    border-radius: 14px;
+    padding: 12px 14px;
+    font-size: 14px;
+    outline: none;
+}
+
+.authBox input:focus {
+    border-color: #6366f1;
+    box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.15);
+}
+
+.authBox button,
+.userBox button {
+    border: none;
+    border-radius: 14px;
+    padding: 11px 14px;
+    font-weight: 700;
+    cursor: pointer;
+    background: #e0e7ff;
+    color: #3730a3;
+}
+
+.authBox button:hover,
+.userBox button:hover {
+    background: #c7d2fe;
+}
+
+#authMessage {
+    margin: 0;
+    min-height: 18px;
+    color: #dc2626;
+    font-size: 13px;
+}
+
+.userBox {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 14px;
+    border-radius: 16px;
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+}
+
+#userEmail {
+    margin: 0;
+    color: #334155;
+    font-size: 14px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.userBox button {
+    width: 100%;
+}
+
+/* DOCUMENTS */
+
+#documentsArea {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    min-height: 0;
+}
+
+#fileInput {
+    display: none;
+}
+
+.uploadBox {
+    width: 100%;
+    min-height: 112px;
+    border: 2px dashed #c7d2fe;
+    background: #f8fafc;
+    border-radius: 18px;
+    padding: 22px;
+    text-align: center;
+    cursor: pointer;
+    transition: 0.2s ease;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 6px;
+}
+
+.uploadBox:hover {
+    background: #eef2ff;
+    border-color: #818cf8;
+}
+
+.uploadBox span {
+    display: block;
+    font-weight: 700;
+    color: #1e293b;
+}
+
+.uploadBox small {
+    color: #64748b;
+}
+
+.primaryBtn,
+.inputBox button {
+    width: 100%;
+    border: none;
+    border-radius: 14px;
+    background: #4f46e5;
+    color: white;
+    font-weight: 700;
+    padding: 13px 18px;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.primaryBtn:hover,
+.inputBox button:hover {
+    background: #4338ca;
+    transform: translateY(-1px);
+}
+
+.docsList {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    overflow-y: auto;
+    min-height: 0;
+}
+
+.docsList > * {
+    padding: 12px 14px;
+    border-radius: 14px;
+    background: #f1f5f9;
+    color: #334155;
+    font-size: 14px;
+}
+
+.doc {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.doc span {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.delete {
+    border: none;
+    width: 28px;
+    height: 28px;
+    min-width: 28px;
+    border-radius: 999px;
+    background: #fee2e2;
+    color: #dc2626;
+    font-weight: 800;
+    cursor: pointer;
+}
+
+.delete:hover {
+    background: #fecaca;
+}
+
+/* CHAT */
+
+.chat {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.chatHeader {
+    padding: 22px 26px;
+    border-bottom: 1px solid #e2e8f0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.status {
+    color: #16a34a;
+    background: #dcfce7;
+    padding: 7px 12px;
+    border-radius: 999px;
+    font-size: 13px;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+.chatBox {
+    flex: 1;
+    padding: 26px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.chatBox:empty::before {
+    content: "No messages yet. Upload a PDF and start asking questions.";
+    color: #94a3b8;
+    margin: auto;
+    text-align: center;
+}
+
+.inputBox {
+    padding: 18px;
+    border-top: 1px solid #e2e8f0;
+    display: flex;
+    gap: 12px;
+    background: #ffffff;
+}
+
+.inputBox input {
+    flex: 1;
+    border: 1px solid #cbd5e1;
+    border-radius: 14px;
+    padding: 14px 16px;
+    font-size: 15px;
+    outline: none;
+}
+
+.inputBox input:focus {
+    border-color: #6366f1;
+    box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.15);
+}
+
+.inputBox button {
+    width: auto;
+}
+
+.msg-user,
+.msg-bot {
+    max-width: 75%;
+    padding: 13px 16px;
+    border-radius: 18px;
+    line-height: 1.45;
+    font-size: 15px;
+}
+
+.msg-user {
+    align-self: flex-end;
+    background: #4f46e5;
+    color: white;
+    border-bottom-right-radius: 6px;
+}
+
+.msg-bot {
+    align-self: flex-start;
+    background: #f1f5f9;
+    color: #1e293b;
+    border-bottom-left-radius: 6px;
+}
+
+@media (max-width: 800px) {
+    .layout {
+        grid-template-columns: 1fr;
+        height: auto;
+        min-height: 100vh;
+    }
+
+    .sidebar {
+        min-height: 260px;
+    }
+
+    .chat {
+        min-height: 600px;
+    }
+}
+.selectedFileName {
+    margin: 0;
+    padding: 0 4px;
+    font-size: 13px;
+    color: #64748b;
+    text-align: center;
+
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
